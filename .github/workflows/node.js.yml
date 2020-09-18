@@ -1,5 +1,5 @@
 name: build
-on: pull_request #
+on: pull_request
 jobs:
   build:  # the name of the job_id. labeled 'build'
     name: my job
