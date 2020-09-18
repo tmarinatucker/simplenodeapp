@@ -11,8 +11,8 @@ jobs:
     steps: 
       - name: my first step
         env:
-          MY_VAR = Hi. My name is 
-          FNAME = Meeks
-          MNAME = Mar
-          LNAME = Tuck
+          MY_VAR: Hi. My name is 
+          FNAME: Meeks
+          MNAME: Mar
+          LNAME: Tuck
         run: echo $MY_VAR $FNAME $MNAME $LNAME
