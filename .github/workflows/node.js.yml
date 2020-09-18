@@ -1,5 +1,5 @@
 name: build
-on: pull_request #
+on: push
 jobs:
   build:  # the name of the job_id. labeled 'build'
     name: my job
@@ -19,14 +19,22 @@ jobs:
       - name: My second step
         if: success()
         run: echo "The previous step has finished successfully"
-      - name: My third step
-        uses: actions/checkout@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/ # if your publishing your package to npm or github package repo
-      - name: my fourth step
-        uses: actions/first-interaction@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: 'Message that will be displayed on users'' first issue'
-          pr-message: 'Message that will be displayed on users'' first pr'
+      - name: My third step send email
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v2
+          with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Github Actions job result
+          # Literal body:
+          body: Build job of ${{github.repository}} completed successfully!
+          # Read file contents as body:
+          body: file://README.md
+          to: tamicamtucker@gmail.com, tmarinatucker@gmail.com
+          from: Meeks # <user@example.com>
+          # Optional content type (defaults to text/plain):
+          content_type: text/html
+          # Optional attachments:
+          attachments: attachments.zip,git.diff,./dist/static/main.js
