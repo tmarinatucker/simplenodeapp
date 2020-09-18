@@ -15,4 +15,4 @@ jobs:
           FNAME = Meeks
           MNAME = Mar
           LNAME = Tuck
-      run: echo $MY_VAR $FNAME $MNAME $LNAME
+        run: echo $MY_VAR $FNAME $MNAME $LNAME
