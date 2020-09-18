@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [12, 14]
+        node: [12]
     steps: 
       - name: my first step
         env:
@@ -16,3 +16,6 @@ jobs:
           MNAME: Mar
           LNAME: Tuck
         run: echo $MY_VAR $FNAME $MNAME $LNAME
+      - name: my second job
+        if: success()
+        run: echo "The prev step has finnished successfully."
