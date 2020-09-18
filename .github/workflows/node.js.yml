@@ -24,16 +24,13 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
+        username: tamicamtucker
+        password: T1marina!
         subject: Github Actions job result
         # Literal body:
         body: Build job of ${{github.repository}} completed successfully!
         # Read file contents as body:
-        body: file://README.md
         to: tamicamtucker@gmail.com, tmarinatucker@gmail.com
         from: Meeks # <user@example.com>
         # Optional content type (defaults to text/plain):
         content_type: text/html
-        # Optional attachments:
-        attachments: attachments.zip,git.diff,./dist/static/main.js
