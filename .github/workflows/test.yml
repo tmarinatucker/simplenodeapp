@@ -10,7 +10,7 @@ runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node: [12]
-        os: [macos-latest, windows-latest, ubuntu-18.04]
+        os: [macos-latest, windows-latest, ubuntu-18.04] # os
         include:
           - node: 13
             os: ubuntu-18.04
